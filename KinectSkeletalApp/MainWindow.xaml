@@ -1,0 +1,10 @@
+﻿<Window x:Class="KinectSkeletalApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Canvas>
+        <Ellipse Canvas.Left="42" Canvas.Top="40" Height="45" Name="ellipseHead" Stroke="Black" Width="45" Fill="#FFFC8A06" />
+        <Ellipse Canvas.Left="12" Canvas.Top="12" Height="35" Name="ellipseLeft" Stroke="Black" Width="35" Fill="#FF24FF00" />
+        <Ellipse Canvas.Left="85" Canvas.Top="12" Height="35" Name="ellipseRight" Stroke="Black" Width="35" Fill="#FF00FCFC" />
+    </Canvas>
+</Window>

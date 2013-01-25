@@ -51,8 +51,12 @@ namespace KinectSkeletalApp
                         MaxDeviationRadius = 0.5f
                     };
                     _sensor.SkeletonStream.Enable(parameters);
+
+                    
                     
                     _sensor.Start();
+
+                    _sensor.ElevationAngle = 0;
                 }
             }
         }

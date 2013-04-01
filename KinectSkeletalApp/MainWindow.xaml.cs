@@ -89,26 +89,23 @@ namespace KinectSkeletalApp
                     return;
                 }
 
-                DepthImagePoint headDepthPoint =
-                    depth.MapFromSkeletonPoint(first.Joints[JointType.Head].Position);
+                DepthImagePoint headDepthPoint = this._sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(
+                    first.Joints[JointType.Head].Position, DepthImageFormat.Resolution640x480Fps30);
 
-                DepthImagePoint leftDepthPoint =
-                    depth.MapFromSkeletonPoint(first.Joints[JointType.HandLeft].Position);
+                DepthImagePoint leftDepthPoint = this._sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(
+                    first.Joints[JointType.HandLeft].Position, DepthImageFormat.Resolution640x480Fps30);
 
-                DepthImagePoint rightDepthPoint =
-                    depth.MapFromSkeletonPoint(first.Joints[JointType.HandRight].Position);
+                DepthImagePoint rightDepthPoint = this._sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(
+                    first.Joints[JointType.HandRight].Position, DepthImageFormat.Resolution640x480Fps30);
 
-                ColorImagePoint headColorPoint =
-                    depth.MapToColorImagePoint(headDepthPoint.X, headDepthPoint.Y,
-                    ColorImageFormat.RgbResolution640x480Fps30);
+                ColorImagePoint headColorPoint = this._sensor.CoordinateMapper.MapDepthPointToColorPoint(
+                    DepthImageFormat.Resolution640x480Fps30, headDepthPoint, ColorImageFormat.RgbResolution640x480Fps30);
 
-                ColorImagePoint leftColorPoint =
-                    depth.MapToColorImagePoint(leftDepthPoint.X, leftDepthPoint.Y,
-                    ColorImageFormat.RgbResolution640x480Fps30);
+                ColorImagePoint leftColorPoint = this._sensor.CoordinateMapper.MapDepthPointToColorPoint(
+                    DepthImageFormat.Resolution640x480Fps30, leftDepthPoint, ColorImageFormat.RgbResolution640x480Fps30);
 
-                ColorImagePoint rightColorPoint =
-                    depth.MapToColorImagePoint(rightDepthPoint.X, rightDepthPoint.Y,
-                    ColorImageFormat.RgbResolution640x480Fps30);
+                ColorImagePoint rightColorPoint = this._sensor.CoordinateMapper.MapDepthPointToColorPoint(
+                    DepthImageFormat.Resolution640x480Fps30, rightDepthPoint, ColorImageFormat.RgbResolution640x480Fps30);
 
                 CameraPosition(ellipseHead, headColorPoint);
                 CameraPosition(ellipseLeft, leftColorPoint);

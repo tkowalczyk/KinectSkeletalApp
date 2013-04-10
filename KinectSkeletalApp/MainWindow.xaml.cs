@@ -1,23 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Kinect;
+using System;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Kinect;
 
 namespace KinectSkeletalApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         KinectSensor _sensor;
@@ -52,8 +40,6 @@ namespace KinectSkeletalApp
                     };
                     _sensor.SkeletonStream.Enable(parameters);
 
-                    
-                    
                     _sensor.Start();
 
                     _sensor.ElevationAngle = 0;
@@ -80,7 +66,6 @@ namespace KinectSkeletalApp
 
         void GetCameraPoint(Skeleton first, AllFramesReadyEventArgs e)
         {
-
             using (DepthImageFrame depth = e.OpenDepthImageFrame())
             {
                 if (depth == null ||
@@ -121,7 +106,6 @@ namespace KinectSkeletalApp
                 {
                     return null;
                 }
-
 
                 skeletonFrameData.CopySkeletonDataTo(allSkeletons);
 
